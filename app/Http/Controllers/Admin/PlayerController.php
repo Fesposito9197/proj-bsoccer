@@ -44,23 +44,27 @@ class PlayerController extends Controller
      */
     public function store(StorePlayerRequest $request)
     {
+        
         $data = $request->validated();
-        // dd($data);
+
         $userID = Auth::id();
         $new_player = new Player();
         $new_player->user_id = $userID;
-        $new_player->fill($data);
-
-        if (isset($data['profile_photo'])) {
-
-            $new_player->profile_photo = Storage::disk('public')->put('uploads', $data['profile_photo']);
-        }
+        $new_player->phone_number = $data['phone_number'];
+        $new_player->description = $data['description'];
+        $new_player->birth_date = $data['birth_date'];
+        $new_player->city = $data['city'];
         $new_player->save();
+    
         if (isset($data['roles'])) {
             $new_player->roles()->sync($data['roles']);
         }
-
-        return redirect()->route('admin.players.index');
+    
+        if (isset($data['profile_photo'])) {
+            $new_player->profile_photo = Storage::disk('public')->put('uploads', $data['profile_photo']);
+        }
+    
+        return redirect()->route('admin.players.index')->with('success', 'Player created successfully.');
     }
 
     /**

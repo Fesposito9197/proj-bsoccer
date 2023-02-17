@@ -26,21 +26,14 @@
         <input type="text" class="form-control" name="city" id="city"value="{{old('city')}}">
     </div>
     <div class="mb-3">
-        
-        {{-- <label for="role_id" class="form-label">Tipologia</label>
-        <select class="form-select" name="role_id" id="role_id" aria-label="Default select example">
-            <option value="">Senza Ruolo</option>
-            @foreach ($roles as $role)
-            <option value="{{$role->id}}" {{old('role_id') == $role->id ? 'selected' : ''}} >{{$role->name}}</option>
-            @endforeach
-        </select> --}}
         @foreach ($roles as $role)
             <div class="form-check form-check-inline">
-                <input class="form-check-input" type="checkbox" id="{{$role->slug}}" name="roles[]" value="{{$role->id}}" {{in_array( $role->id , old('roles',[])) ? 'checked' : ''}}>
-                <label class="form-check-label" for="{{$role->slug}}">{{$role->name}}</label>
+                <input class="form-check-input" type="checkbox" id="{{ $role->slug }}" name="roles[]" value="{{ $role->id }}" {{ in_array($role->id, old('roles', [])) ? 'checked' : '' }}>
+                <label class="form-check-label" for="{{ $role->slug }}">{{ $role->name }}</label>
             </div>
         @endforeach
     </div>
+    
     <button type="submit" class="btn btn-success">Salva</button>
     </form>
 </div>
