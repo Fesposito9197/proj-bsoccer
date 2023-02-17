@@ -27,4 +27,9 @@ class Player extends Model
     {
         return $this->belongsToMany(Star::class);
     }
+
+    public function roles()
+    {
+        return $this->belongsToMany(Role::class);
+    }
 }

@@ -31,6 +31,7 @@ Route::middleware(['auth'])->prefix('admin')->name('admin.')->group(function () 
     Route::delete('/messages/{message}', [MessageController::class, 'destroy'])->name('messages.destroy');
     Route::delete('/reviews/{review}', [ReviewController::class, 'destroy'])->name('reviews.destroy');
     Route::delete('/stars/{star}', [StarController::class, 'destroy'])->name('stars.destroy');
+    
 });
 
 require __DIR__.'/auth.php';
