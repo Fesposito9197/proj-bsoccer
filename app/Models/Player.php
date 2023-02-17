@@ -32,4 +32,9 @@ class Player extends Model
     {
         return $this->belongsToMany(Role::class);
     }
+
+    public function sponsorships()
+    {
+        return $this->belongsToMany(Sponsorship::class);
+    }
 }
