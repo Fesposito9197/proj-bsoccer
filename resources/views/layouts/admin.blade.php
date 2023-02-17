@@ -93,6 +93,15 @@
                     Dashboard
                   </a>
                 </li>
+                <li class="nav-item">
+                  <a
+                    class="nav-link text-white {{ Route::currentRouteName() == 'admin.players.index' ? 'bg-secondary' : '' }}"
+                    href="{{route('admin.players.index')}}"
+                  >
+                  <i class="fa-solid fa-user fa-lg fa-fw"></i>
+                    My profile
+                  </a>
+                </li>
               </ul>
             </div>
           </nav>

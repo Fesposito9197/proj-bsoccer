@@ -24,7 +24,13 @@ class StorePlayerRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            // 'user_id' => 'exists:users,id',
+            'profile_photo' => 'nullable|file|max:2048',
+            'phone_number' => 'required|string|max:50',
+            'description' => 'required|string',
+            'birth_date' => 'required|date',
+            'city' => 'required|string',
+            'roles' => 'nullable|exists:roles,id',
         ];
     }
 }
