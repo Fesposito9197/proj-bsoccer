@@ -44,16 +44,13 @@ class PlayerController extends Controller
      */
     public function store(StorePlayerRequest $request)
     {
-        
         $data = $request->validated();
 
         $userID = Auth::id();
+
         $new_player = new Player();
         $new_player->user_id = $userID;
-        $new_player->phone_number = $data['phone_number'];
-        $new_player->description = $data['description'];
-        $new_player->birth_date = $data['birth_date'];
-        $new_player->city = $data['city'];
+        $new_player->fill($data);
         $new_player->save();
     
         if (isset($data['roles'])) {
