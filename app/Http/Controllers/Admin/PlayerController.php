@@ -107,9 +107,10 @@ class PlayerController extends Controller
     public function destroy(Player $player)
     {
         // $old_title = $project->title;
-        // if ($project->cover_image) {
-        //     Storage::disk('public')->delete($project->cover_image);
-        // }
+        if ($player->profile_photo) {
+            Storage::disk('public')->delete($player->profile_photo);
+        }
+
         $player->delete();
 
         return redirect()->route('admin.players.index');

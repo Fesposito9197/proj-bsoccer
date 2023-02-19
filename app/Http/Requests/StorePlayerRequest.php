@@ -29,7 +29,7 @@ class StorePlayerRequest extends FormRequest
             'description' => 'required|string',
             'birth_date' => 'required|date',
             'city' => 'required|string',
-            'roles' => 'nullable|exists:roles,id',
+            'roles' => 'required|exists:roles,id',
         ];
     }
 }
