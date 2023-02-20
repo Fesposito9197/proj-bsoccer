@@ -24,7 +24,12 @@ class UpdatePlayerRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'profile_photo' => 'nullable|file|max:2048',
+            'phone_number' => 'required|string|max:50',
+            'description' => 'required|string',
+            'birth_date' => 'required|date',
+            'city' => 'required|string',
+            'roles' => 'required|exists:roles,id',
         ];
     }
 }

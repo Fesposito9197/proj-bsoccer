@@ -72,7 +72,7 @@ class PlayerController extends Controller
      */
     public function show(Player $player)
     {
-        //
+        return view('admin.players.show', compact('player'));
     }
 
     /**
@@ -83,7 +83,8 @@ class PlayerController extends Controller
      */
     public function edit(Player $player)
     {
-        //
+        $roles = Role::all();
+        return view('admin.players.edit', compact('player', 'roles'));
     }
 
     /**
@@ -95,7 +96,19 @@ class PlayerController extends Controller
      */
     public function update(UpdatePlayerRequest $request, Player $player)
     {
-        //
+        
+        $data = $request->validated();
+        if (isset($data['profile_photo'])){
+            if($player->profile_photo){
+                Storage::disk('public')->delete($player->profile_photo);
+            }
+            $img_path = Storage::disk('public')->put('uploads', $data['profile_photo']);
+            $data['profile_photo'] = $img_path;
+        }
+        $player->update($data);
+        $roles = isset($data['roles']) ? $data['roles'] : [];
+        $player->roles()->sync($roles);
+        return redirect()->route('admin.players.index');
     }
 
     /**
