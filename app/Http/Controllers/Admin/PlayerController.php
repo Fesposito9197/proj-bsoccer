@@ -22,7 +22,8 @@ class PlayerController extends Controller
     {
         $userID = Auth::id();
         $player = Player::where('user_id', $userID)->first();
-        return view('admin.players.index', compact('player'));
+        $users = User::where('id', $userID)->first();
+        return view('admin.players.index', compact('player', 'users'));
     }
 
     /**

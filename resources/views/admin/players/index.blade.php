@@ -3,6 +3,7 @@
 @section('content')
     <div class="container">
         @if (!empty($player))
+        
         <table class="table mt-4">
             <thead class="table-dark">
               <tr>
@@ -65,7 +66,8 @@
             </tbody>
         @else
             <div class="d-flex align-items-center">
-                <h1>Benvenuto! Crea ora il tuo profilo!</h1>
+                
+                <h1>Benvenuto {{$users->name}} ! Crea ora il tuo profilo!</h1>
                 <a href="{{ route('admin.players.create') }}" class="btn btn-success ms-2"><i class="fa-regular fa-square-plus fa-lg fa-fw"></i></a>
             </div>
         @endif
