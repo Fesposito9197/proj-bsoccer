@@ -19,7 +19,7 @@
                         }
                     };
                 </script>
-                @error('title')
+                @error('profile_photo')
                     <div class="alert
                     alert-danger">{{ $message }}
                     </div>
