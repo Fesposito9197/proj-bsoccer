@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('players', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id')->constrained()->onDelete('cascade');
-            $table->string('profile_photo');
+            $table->string('profile_photo')->nullable();
             $table->string('phone_number', 50);
             $table->text('description');
             $table->date('birth_date');
