@@ -35,7 +35,7 @@
         class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-2 shadow"
       >
         <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3" href="/"
-          >BoolPress</a
+          >BSoccer</a
         >
         <button
           class="navbar-toggler position-absolute d-md-none collapsed"
@@ -84,6 +84,7 @@
           >
             <div class="position-sticky pt-3">
               <ul class="nav flex-column">
+                @if (!empty($player))
                 <li class="nav-item">
                   <a
                     class="nav-link text-white {{ Route::currentRouteName() == 'admin.dashboard' ? 'bg-secondary' : '' }}"
@@ -93,6 +94,8 @@
                     Dashboard
                   </a>
                 </li>
+                    
+                @endif
                 <li class="nav-item">
                   <a
                     class="nav-link text-white {{ Route::currentRouteName() == 'admin.players.index' ? 'bg-secondary' : '' }}"
