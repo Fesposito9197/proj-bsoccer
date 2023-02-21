@@ -43,7 +43,7 @@
             </div>
             <div class="mb-3">
                 <label for="birth_date"class="form-label">Aggiungi la data di nascita</label>
-                <input type="date" class="form-control @error('description') is-invalid @enderror" name="birth_date"
+                <input type="date" class="form-control @error('birth_date') is-invalid @enderror" name="birth_date"
                     id="birth_date" value="{{ old('birth_date') }}">
                 @error('birth_date')
                     <div class="alert alert-danger">{{ $message }}</div>
@@ -51,7 +51,10 @@
             </div>
             <div class="mb-3">
                 <label for="city" class="form-label">Aggiungi la tua citta</label>
-                <input type="text" class="form-control" name="city" id="city"value="{{ old('city') }}">
+                <input type="text" class="form-control @error('city') is-invalid @enderror"  name="city" id="city"value="{{ old('city') }}">
+                @error('city')
+                    <div class="alert alert-danger">{{ $message }}</div>
+                @enderror
             </div>
             <div class="mb-3">
                 @foreach ($roles as $role)
