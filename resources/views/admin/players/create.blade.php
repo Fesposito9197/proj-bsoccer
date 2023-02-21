@@ -21,16 +21,16 @@
                 </script>
                 @error('profile_photo')
                     <div class="alert
-                    alert-danger">{{ $message }}
+                    alert-danger mt-3">{{ $message }}
                     </div>
                 @enderror
             </div>
             <div class="mb-3">
                 <label for="phone_number" class="form-label">Aggiungi un numero di telefono</label>
-                <input type="tel" class="form-control @error('phone_number') is-invalid @enderror" name="phone_number"
+                <input type="tel" class="form-control @error('phone_number') is-invalid @enderror" required name="phone_number"
                     id="phone_number" value="{{ old('phone_number') }}">
                 @error('phone_number')
-                    <div class="alert alert-danger">{{ $message }}</div>
+                    <div class="alert alert-danger mt-3">{{ $message }}</div>
                 @enderror
             </div>
             <div class="mb-3">
@@ -38,22 +38,21 @@
                     descrizione</label>
                 <textarea name="description" class="form-control" id="description" cols="30" rows="5">{{ old('description') }}</textarea>
                 @error('description')
-                    <div class="alert alert-danger">{{ $message }}</div>
+                    <div class="alert alert-danger mt-3">{{ $message }}</div>
                 @enderror
             </div>
             <div class="mb-3">
                 <label for="birth_date"class="form-label">Aggiungi la data di nascita</label>
-                <input type="date" class="form-control @error('birth_date') is-invalid @enderror" name="birth_date"
-                    id="birth_date" value="{{ old('birth_date') }}">
+                <input type="date" class="form-control @error('birth_date') is-invalid @enderror"  name="birth_date" required  id="birth_date" value="{{ old('birth_date') }}">
                 @error('birth_date')
-                    <div class="alert alert-danger">{{ $message }}</div>
+                    <div class="alert alert-danger mt-3">{{ $message }}</div>
                 @enderror
             </div>
             <div class="mb-3">
                 <label for="city" class="form-label">Aggiungi la tua citta</label>
-                <input type="text" class="form-control @error('city') is-invalid @enderror"  name="city" id="city"value="{{ old('city') }}">
+                <input type="text" class="form-control @error('city') is-invalid @enderror" required  name="city" id="city"value="{{ old('city') }}">
                 @error('city')
-                    <div class="alert alert-danger">{{ $message }}</div>
+                    <div class="alert alert-danger mt-3">{{ $message }}</div>
                 @enderror
             </div>
             <div class="mb-3">
@@ -66,7 +65,7 @@
                     </div>
                 @endforeach
                 @error('roles')
-                    <div class="alert alert-danger">{{ $message }}</div>
+                    <div class="alert alert-danger mt-3">{{ $message }}</div>
                 @enderror
             </div>
 
