@@ -6,8 +6,10 @@ use App\Http\Controllers\Controller;
 use App\Models\Player;
 use App\Http\Requests\StorePlayerRequest;
 use App\Http\Requests\UpdatePlayerRequest;
+use App\Models\Message;
 use App\Models\Role;
 use App\Models\User;
+use App\Models\Review;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Auth;
 
@@ -21,9 +23,11 @@ class PlayerController extends Controller
     public function index()
     {
         $userID = Auth::id();
+        // $reviewCount = Review::count();
+        // $messageCount = Message::count();
         $player = Player::where('user_id', $userID)->first();
         $users = User::where('id', $userID)->first();
-        return view('admin.players.index', compact('player', 'users'));
+        return view('admin.players.index', compact('player', 'users',));
     }
 
     /**

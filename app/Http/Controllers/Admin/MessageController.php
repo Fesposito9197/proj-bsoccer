@@ -10,11 +10,17 @@ use Illuminate\Support\Facades\Auth;
 
 class MessageController extends Controller
 {
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
     public function index()
     {
         $userID = Auth::id();
         $player = Player::where('user_id', $userID)->first();
 
         $messages = Message::where('player_id', $player->id)->get();
+        return view('admin.messages.index', compact('player', 'messages'));
     }
 }

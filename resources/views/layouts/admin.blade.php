@@ -96,13 +96,31 @@
                 </li>
                     
                 @endif
-                <li class="nav-item">
+                <li class="nav-item my-3">
                   <a
                     class="nav-link text-white {{ Route::currentRouteName() == 'admin.players.index' ? 'bg-secondary' : '' }}"
                     href="{{route('admin.players.index')}}"
                   >
                   <i class="fa-solid fa-user fa-lg fa-fw"></i>
                     My profile
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a
+                    class="nav-link text-white {{ Route::currentRouteName() == 'admin.messages.index' ? 'bg-secondary' : '' }}"
+                    href="{{route('admin.messages.index')}}"
+                  >
+                  <i class="fa-solid fa-message fa-lg fa-fw"></i>
+                    My message
+                  </a>
+                </li>
+                <li class="nav-item mt-3">
+                  <a
+                    class="nav-link text-white {{ Route::currentRouteName() == 'admin.reviews.index' ? 'bg-secondary' : '' }}"
+                    href="{{route('admin.reviews.index')}}"
+                  >
+                  <i class="fa-solid fa-thumbtack fa-lg fa-fw"></i>
+                    My review
                   </a>
                 </li>
               </ul>

@@ -8,7 +8,8 @@
             @method('PUT')
             <div class="mb-3">
                 <label for="profile_photo" class="form-label">Modifica foto profilo</label>
-                <img id="output" width="100" class="d-block my-3" />
+                <img id="output" width="100" class="d-block my-3" 
+                @if ($player->profile_photo) src='{{asset("storage/$player->profile_photo")}}'@endif />
                 <input type="file" class="form-control @error('profile_photo') is-invalid @enderror" id="profile_photo"
                     name="profile_photo" value="{{ old('profile_photo', $player->profile_photo) }}"
                     onchange="loadFile(event)">
