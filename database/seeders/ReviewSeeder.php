@@ -22,7 +22,7 @@ class ReviewSeeder extends Seeder
         Schema::disableForeignKeyConstraints();
         Review::truncate();
         Schema::enableForeignKeyConstraints();
-        for ($i = 0; $i < 2; $i++) {
+        for ($i = 0; $i < 40; $i++) {
 
             $review = User::inRandomOrder()->first();
             $new_review = new Review();

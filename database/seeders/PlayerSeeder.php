@@ -18,22 +18,21 @@ class PlayerSeeder extends Seeder
      */
     public function run(Faker $faker)
     {
-        
-        // Schema::disableForeignKeyConstraints();
-        // Player::truncate();
-        // Schema::enableForeignKeyConstraints();
-        // for ($i=0; $i < 2 ; $i++) { 
-            
-        //     $user = User::first();
-        //     $new_player = new Player();
-        //     $new_player->profile_photo = $faker->name();
-        //     $new_player->phone_number = $faker->phoneNumber();
-        //     $new_player->description = $faker->text(100);
-        //     $new_player->birth_date = $faker->date();
-        //     $new_player->city = $faker->state();
-        //     $new_player->user_id = $user->id;
-    
-        //     $new_player->save();
-        // }
+
+        Schema::disableForeignKeyConstraints();
+        Player::truncate();
+        Schema::enableForeignKeyConstraints();
+
+        foreach (User::all() as $user) {
+
+            $new_player = new Player();
+            $new_player->profile_photo = $faker->image(null, 640, 480);
+            $new_player->phone_number = $faker->phoneNumber();
+            $new_player->description = $faker->text(100);
+            $new_player->birth_date = $faker->date();
+            $new_player->city = $faker->state();
+            $new_player->user_id = $user->id;
+            $new_player->save();
+        }
     }
 }

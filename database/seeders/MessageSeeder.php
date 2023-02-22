@@ -23,7 +23,7 @@ class MessageSeeder extends Seeder
         Schema::disableForeignKeyConstraints();
         Message::truncate();
         Schema::enableForeignKeyConstraints();
-        for ($i = 0; $i < 2; $i++) {
+        for ($i = 0; $i < 40; $i++) {
             $message = User::inRandomOrder()->first();
             $new_message = new Message();
             $new_message->player_id = $message->id;
