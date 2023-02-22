@@ -84,7 +84,7 @@
           >
             <div class="position-sticky pt-3">
               <ul class="nav flex-column">
-                @if (!empty($player))
+                
                 <li class="nav-item">
                   <a
                     class="nav-link text-white {{ Route::currentRouteName() == 'admin.dashboard' ? 'bg-secondary' : '' }}"
@@ -95,7 +95,7 @@
                   </a>
                 </li>
                     
-                @endif
+                
                 <li class="nav-item my-3">
                   <a
                     class="nav-link text-white {{ Route::currentRouteName() == 'admin.players.index' ? 'bg-secondary' : '' }}"
