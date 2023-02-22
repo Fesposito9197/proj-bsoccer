@@ -105,6 +105,7 @@
                     My profile
                   </a>
                 </li>
+                @if (!empty($player))
                 <li class="nav-item">
                   <a
                     class="nav-link text-white {{ Route::currentRouteName() == 'admin.messages.index' ? 'bg-secondary' : '' }}"
@@ -114,6 +115,9 @@
                     My message
                   </a>
                 </li>
+                    
+                @endif
+                @if (!empty($player))
                 <li class="nav-item mt-3">
                   <a
                     class="nav-link text-white {{ Route::currentRouteName() == 'admin.reviews.index' ? 'bg-secondary' : '' }}"
@@ -123,6 +127,8 @@
                     My review
                   </a>
                 </li>
+                    
+                @endif
               </ul>
             </div>
           </nav>
