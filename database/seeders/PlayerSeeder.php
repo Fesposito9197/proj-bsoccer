@@ -29,7 +29,7 @@ class PlayerSeeder extends Seeder
             $new_player->profile_photo = $faker->image(null, 640, 480);
             $new_player->phone_number = $faker->phoneNumber();
             $new_player->description = $faker->text(100);
-            $new_player->birth_date = $faker->date();
+            $new_player->birth_date = $faker->dateTimeBetween('-30 years', '-18 years');
             $new_player->city = $faker->state();
             $new_player->user_id = $user->id;
             $new_player->save();
