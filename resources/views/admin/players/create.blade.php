@@ -26,7 +26,7 @@
                 @enderror
             </div>
             <div class="mb-3">
-                <label for="phone_number" class="form-label">Aggiungi un numero di telefono</label>
+                <label for="phone_number" class="form-label">Aggiungi un numero di telefono*</label>
                 <input type="tel" class="form-control @error('phone_number') is-invalid @enderror" required
                     name="phone_number" id="phone_number" value="{{ old('phone_number') }}">
                 @error('phone_number')
@@ -35,14 +35,14 @@
             </div>
             <div class="mb-3">
                 <label for="description" class="form-label @error('description') is-invalid @enderror">Aggiungi una
-                    descrizione</label>
+                    descrizione*</label>
                 <textarea name="description" class="form-control" id="description" cols="30" rows="5" required>{{ old('description') }}</textarea>
                 @error('description')
                     <div class="alert alert-danger mt-3">{{ $message }}</div>
                 @enderror
             </div>
             <div class="mb-3">
-                <label for="birth_date"class="form-label">Aggiungi la data di nascita</label>
+                <label for="birth_date"class="form-label">Aggiungi la data di nascita*</label>
                 <input type="date" class="form-control @error('birth_date') is-invalid @enderror" name="birth_date"
                     required id="birth_date" value="{{ old('birth_date') }}">
                 @error('birth_date')
@@ -50,7 +50,7 @@
                 @enderror
             </div>
             <div class="mb-3">
-                <label for="city" class="form-label">Aggiungi la tua citta</label>
+                <label for="city" class="form-label">Aggiungi la tua citta*</label>
                 <input type="text" class="form-control @error('city') is-invalid @enderror" required name="city"
                     id="city"value="{{ old('city') }}">
                 @error('city')
@@ -58,6 +58,7 @@
                 @enderror
             </div>
             <div class="mb-3">
+                <h4>Aggiungi un o piu ruoli!*</h4>
                 @foreach ($roles as $role)
                     <div class="form-check form-check-inline">
                         <input class="form-check-input" type="checkbox" id="{{ $role->slug }}" name="roles[]"
