@@ -35,6 +35,7 @@ class PlayerSeeder extends Seeder
 
             'Sono un calciatore amatoriale molto appassionato, che gioca per divertirsi e per stare in forma. Sono un giocatore molto veloce e abile nei dribbling, che ama superare gli avversari e creare spazi per me e per i miei compagni di squadra. Sono anche molto preciso nei passaggi e nelle conclusioni a rete, e cerco sempre di sfruttare al meglio le occasioni che mi vengono presentate.'
         ];
+        shuffle($descriptions);
 
         foreach (User::all() as $user) {
 
@@ -42,9 +43,8 @@ class PlayerSeeder extends Seeder
             $new_player = new Player();
             $new_player->profile_photo = $faker->image(null, 640, 480);
             $new_player->phone_number =  '+39 ' . $faker->unique()->regexify('3[0-9]{8}');
-            foreach ($descriptions as $description) {
-                $new_player->description = $description;
-            }
+            $index = rand(0, count($descriptions) - 1);
+            $new_player->description = $descriptions[$index];
             $new_player->birth_date = $faker->dateTimeBetween('-30 years', '-18 years');
             $new_player->city = $faker->state();
             $new_player->user_id = $user->id;
