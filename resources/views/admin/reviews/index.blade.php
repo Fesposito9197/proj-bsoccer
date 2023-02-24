@@ -1,9 +1,9 @@
 @extends('layouts.admin')
 
 @section('content')
-<div class="container mt-4 d-flex">
+<div class="container mt-4 d-flex flex-wrap mb-3">
     @foreach ($reviews as $review)
-        <ul class="list-group">
+        <ul class="list-group mb-3">
             <li class="d-flex me-3" style="height: 100%;">
                 <div class="card border-info border border-3" style="width: 18rem;">
                     <div class="card-body">
