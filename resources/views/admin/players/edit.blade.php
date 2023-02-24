@@ -8,8 +8,8 @@
             @method('PUT')
             <div class="mb-3">
                 <label for="profile_photo" class="form-label">Modifica foto profilo</label>
-                <img id="output" width="100" class="d-block my-3" 
-                @if ($player->profile_photo) src='{{asset("storage/$player->profile_photo")}}'@endif />
+                <img id="output" width="100" class="d-block my-3"
+                    @if ($player->profile_photo) src='{{ asset("storage/$player->profile_photo") }}' @endif />
                 <input type="file" class="form-control @error('profile_photo') is-invalid @enderror" id="profile_photo"
                     name="profile_photo" value="{{ old('profile_photo', $player->profile_photo) }}"
                     onchange="loadFile(event)">
@@ -30,7 +30,8 @@
             </div>
             <div class="mb-3">
                 <label for="phone_number" class="form-label">Modifica numero di telefono</label>
-                <input type="tel" class="form-control @error('phone_number') is-invalid @enderror"  required name="phone_number" id="phone_number" value="{{ old('phone_number', $player->phone_number) }}">
+                <input type="tel" class="form-control @error('phone_number') is-invalid @enderror" required
+                    name="phone_number" id="phone_number" value="{{ old('phone_number', $player->phone_number) }}">
                 @error('phone_number')
                     <div class="alert alert-danger mt-3">{{ $message }}</div>
                 @enderror
@@ -38,7 +39,7 @@
             <div class="mb-3">
                 <label for="description" class="form-label @error('description') is-invalid @enderror">Modifica
                     descrizione</label>
-                <textarea name="description" class="form-control" id="description" cols="30" rows="5">{{ old('description', $player->description) }}</textarea>
+                <textarea name="description" class="form-control" id="description" cols="30" rows="5" required>{{ old('description', $player->description) }}</textarea>
                 @error('description')
                     <div class="alert alert-danger mt-3">{{ $message }}</div>
                 @enderror
@@ -53,7 +54,8 @@
             </div>
             <div class="mb-3">
                 <label for="city" class="form-label">Modifica la tua citta</label>
-                <input type="text" class="form-control  @error('city') is-invalid @enderror" required name="city" id="city"value="{{ old('city', $player->city) }}">
+                <input type="text" class="form-control  @error('city') is-invalid @enderror" required name="city"
+                    id="city"value="{{ old('city', $player->city) }}">
                 @error('city')
                     <div class="alert alert-danger mt-3">{{ $message }}</div>
                 @enderror
