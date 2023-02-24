@@ -27,7 +27,7 @@ class MessageSeeder extends Seeder
             $message = User::inRandomOrder()->first();
             $new_message = new Message();
             $new_message->player_id = $message->id;
-            $new_message->name = $faker->firstName();
+            $new_message->name = $faker->firstNameMale();
             $new_message->email = $faker->email();
             $new_message->content = $faker->text(300);
             $new_message->date_message = $faker->dateTimeBetween('-1 years', 'now');
