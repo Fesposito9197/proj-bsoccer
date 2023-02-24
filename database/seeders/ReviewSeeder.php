@@ -27,7 +27,7 @@ class ReviewSeeder extends Seeder
             $review = User::inRandomOrder()->first();
             $new_review = new Review();
             $new_review->player_id = $review->id;
-            $new_review->name = $faker->firstName();
+            $new_review->name = $faker->firstNameMale();
             $new_review->content = $faker->text(300);
             $new_review->date_message = $faker->dateTimeBetween('-1 years', 'now');
             $new_review->save();
