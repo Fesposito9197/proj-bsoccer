@@ -3,7 +3,7 @@
 @section('content')
     <div class="container">
         <h1>create</h1>
-        <form action="{{ route('admin.players.store') }}" method="post" enctype="multipart/form-data">
+        <form onsubmit="return checkCheckbox()" action="{{ route('admin.players.store') }}" method="post" enctype="multipart/form-data">
             @csrf
             <div class="mb-3">
                 <label for="profile_photo" class="form-label">Aggiungi una foto profilo</label>
@@ -61,18 +61,34 @@
                 <h4>Aggiungi un o piu ruoli!*</h4>
                 @foreach ($roles as $role)
                     <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="checkbox" id="{{ $role->slug }}" name="roles[]"
+                        <input class="form-check-input checkbox_role" type="checkbox" id="{{ $role->slug }}" name="roles[]"
                             value="{{ $role->id }}" {{ in_array($role->id, old('roles', [])) ? 'checked' : '' }}>
-                        <label class="form-check-label @error('roles') is-invalid @enderror"
-                            for="{{ $role->slug }}">{{ $role->name }}</label>
+                        <label class="form-check-label">{{ $role->name }}</label>
                     </div>
                 @endforeach
-                @error('roles')
-                    <div class="alert alert-danger mt-3">{{ $message }}</div>
-                @enderror
             </div>
 
             <button type="submit" class="btn btn-success">Salva</button>
         </form>
+        <script>
+            function checkCheckbox() {
+                const checkboxes = document.querySelectorAll('.checkbox_role');
+                for (let i = 0; i < checkboxes.length; i++) {
+                    if (checkboxes[i].checked) {
+                    return true;
+                    }
+                }
+                const errorMessage = 'Seleziona almeno un ruolo';
+                const form = document.querySelector('form');
+                const input = document.querySelector('.checkbox_role');
+                input.setCustomValidity(errorMessage);
+                input.reportValidity();
+                input.addEventListener('input', function() {
+                    input.setCustomValidity('');
+                });
+                return false;
+                }
+        </script>
+     
     </div>
 @endsection
