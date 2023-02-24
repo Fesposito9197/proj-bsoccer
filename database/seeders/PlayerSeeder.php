@@ -8,6 +8,7 @@ use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Schema;
 use Faker\Generator as Faker;
+use Faker\Factory;
 
 class PlayerSeeder extends Seeder
 {
@@ -23,6 +24,7 @@ class PlayerSeeder extends Seeder
         Player::truncate();
         Schema::enableForeignKeyConstraints();
 
+
         $descriptions = [
             'Sono un calciatore amatoriale con una grande passione per lo sport e una grande voglia di divertirmi con i miei compagni di squadra. Sono un giocatore molto fisico e resistente, che ama lottare per ogni pallone e che non si arrende mai. Sono anche molto preciso nei passaggi e nelle conclusioni a rete, e cerco sempre di sfruttare al meglio le occasioni che mi vengono presentate.',
 
@@ -36,9 +38,10 @@ class PlayerSeeder extends Seeder
 
         foreach (User::all() as $user) {
 
+
             $new_player = new Player();
             $new_player->profile_photo = $faker->image(null, 640, 480);
-            $new_player->phone_number = $faker->phoneNumber();
+            $new_player->phone_number =  '+39 ' . $faker->unique()->regexify('3[0-9]{8}');
             foreach ($descriptions as $description) {
                 $new_player->description = $description;
             }
