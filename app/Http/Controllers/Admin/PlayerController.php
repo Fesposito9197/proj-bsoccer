@@ -27,7 +27,7 @@ class PlayerController extends Controller
         // $messageCount = Message::count();
         $player = Player::where('user_id', $userID)->first();
         $users = User::where('id', $userID)->first();
-        return view('admin.players.index', compact('player', 'users',));
+        return view('admin.players.show', compact('player', 'users',));
     }
 
     /**
@@ -77,7 +77,9 @@ class PlayerController extends Controller
      */
     public function show(Player $player)
     {
-        return view('admin.players.show', compact('player'));
+        $userID = Auth::id();
+        $users = User::where('id', $userID)->first();
+        return view('admin.players.show', compact('player', 'users'));
     }
 
     /**

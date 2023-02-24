@@ -5,6 +5,10 @@ use App\Http\Controllers\Admin\MessageController;
 use App\Http\Controllers\Admin\StarController;
 use App\Http\Controllers\Admin\ReviewController;
 use App\Http\Controllers\ProfileController;
+use App\Models\Player;
+use App\Models\Role;
+use App\Models\User;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -24,8 +28,15 @@ Route::get('/', function () {
 
 Route::middleware(['auth'])->prefix('admin')->name('admin.')->group(function () {
     Route::get('/dashboard', function () {
-        return view('admin.dashboard');
-    })->name('dashboard');
+        $userID = Auth::id();
+        $roles = Role::all();
+        $player = Player::where('user_id', $userID)->first();
+        $users = User::where('id', $userID)->first();
+        if (!isset($player)) {
+            return view('admin.players.create', compact('roles', 'users', 'player'));
+        }
+        return view('admin.players.show', compact('roles', 'users', 'player'));
+    });
 
     Route::resource('players', PlayerController::class);
     Route::resource('messages', MessageController::class);

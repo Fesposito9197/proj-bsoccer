@@ -2,6 +2,6 @@
 
 @section('content')
 <div class="container">
-    <h1>Dashboard Layout</h1>
+    <p>{{$reviewCount}}</p>
 </div>
 @endsection

@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="container">
-        @if (!empty($player))
+        {{-- @if (!empty($player))
         
         <table class="table mt-4">
             <thead class="table-dark">
@@ -38,7 +38,7 @@
                         </div>
                         <button type="button" class="btn btn-danger ms-2" data-bs-toggle="modal" data-bs-target="#modal-{{$player->id}}">
                             <i class="fa-solid fa-dumpster "></i>
-                          </button>
+                        </button>
                     </td>
                 </tr>
                 <!-- Modal -->
@@ -64,12 +64,12 @@
                     </div>
                 </div>
             </tbody>
-        @else
+        @else --}}
             <div class="d-flex align-items-center">
                 
                 <h1>Benvenuto {{$users->name}} ! Crea ora il tuo profilo!</h1>
                 <a href="{{ route('admin.players.create') }}" class="btn btn-success ms-2"><i class="fa-regular fa-square-plus fa-lg fa-fw"></i></a>
             </div>
-        @endif
+        {{-- @endif --}}
     </div>
 @endsection

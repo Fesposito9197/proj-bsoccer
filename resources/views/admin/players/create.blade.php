@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="container">
-        <h1>create</h1>
+        <h1>Crea il tuo profilo!</h1>
         <form action="{{ route('admin.players.store') }}" method="post" enctype="multipart/form-data">
             @csrf
             <div class="mb-3">
