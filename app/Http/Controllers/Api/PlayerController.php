@@ -10,7 +10,7 @@ class PlayerController extends Controller
 {
     public function index()
     {
-        $players = Player::with('user', 'roles', 'stars')->get();
+        $players = Player::with('user', 'roles', 'stars', 'sponsorships')->get();
         return $players;
     }
 }
