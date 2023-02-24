@@ -82,6 +82,23 @@
                                 </button>
                             </div>
                         </div>
+
+                        <script>
+                            var password = document.getElementById("password")
+                            var confirmPassword = document.getElementById("password-confirm");
+                        
+                            function validatePassword(){
+                              if(password.value != confirmPassword.value) {
+                                confirmPassword.setCustomValidity("Le password non corrispondono");
+                              } else {
+                                confirmPassword.setCustomValidity('');
+                              }
+                            }
+                        
+                            password.onchange = validatePassword;
+                            confirmPassword.onkeyup = validatePassword;
+                        </script>
+                        
                     </form>
                 </div>
             </div>
