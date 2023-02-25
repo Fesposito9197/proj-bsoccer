@@ -7,7 +7,9 @@
             <div class="container p-3 text-white">
                 <img height="150px" width="150px" class="mb-3 rounded-circle" 
                 @if (!empty($player->profile_photo)) 
-                    src="{{ asset("storage/$player->profile_photo") }}"
+                src="{{$player->profile_photo}}"    
+                src="{{ asset("storage/$player->profile_photo")}}"
+                    
                 @else
                     src='https://st3.depositphotos.com/6672868/14217/v/600/depositphotos_142179970-stock-illustration-user-profile-icon.jpg'
                 @endif
