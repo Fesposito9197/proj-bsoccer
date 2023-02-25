@@ -15,3 +15,4 @@ use Illuminate\Support\Facades\Route;
 |
 */
 Route::get('players', [PlayerController::class, 'index']);
+Route::get('player/{id}', [PlayerController::class. 'show']);
