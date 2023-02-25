@@ -22,6 +22,9 @@ class Player_roleseeder extends Seeder
         $players = DB::table('players')->get();
         $roles = DB::table('roles')->get();
 
+        DB::table('player_role')->truncate();
+
+
         foreach ($players as $player) {
             // Prendi tutti i role già assegnati al player
             $assignedRoles = DB::table('player_role')
