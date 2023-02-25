@@ -13,4 +13,16 @@ class PlayerController extends Controller
         $players = Player::with('user', 'roles', 'stars', 'sponsorships')->get();
         return $players;
     }
+
+    public function show($id)
+    {
+        try {
+            $player = Player::with('user', 'roles', 'stars', 'sponsorships', 'messages', 'reviews')->where('id', $id)->firstOrFail();
+            return $player;
+        } catch(\Illuminate\Database\Eloquent\ModelNotFoundException $e) {
+            return response([
+                'error' => 'Errore 404 pagina non trovata'
+            ], 404);
+        }
+    }
 }
