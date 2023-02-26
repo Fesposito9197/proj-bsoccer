@@ -21,6 +21,8 @@ class PlayerStarSeeder extends Seeder
         // seleziona gli id dei giocatori
         $playerIds = DB::table('players')->pluck('id')->toArray();
 
+        DB::table('player_star')->truncate();
+
         // assegna un numero casuale di star_id ad ogni player
         foreach ($playerIds as $playerId) {
             $numStars = rand(1, count($starIds)); // imposta il massimo valore a count($starIds)
