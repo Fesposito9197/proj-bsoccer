@@ -46,12 +46,12 @@ class ReviewSeeder extends Seeder
             "È un giocatore molto coraggioso e non ha paura di affrontare i suoi avversari.",
         ];
 
-        $min_reviews_per_player = 5;
+        // $min_reviews_per_player = 5;
         $players = User::all();
 
         foreach ($players as $player) {
             $num_reviews = Review::where('player_id', $player->id)->count();
-            $num_new_reviews = max(0, $min_reviews_per_player - $num_reviews);
+            $num_new_reviews = rand(5, 30) - $num_reviews;
 
             for ($i = 0; $i < $num_new_reviews; $i++) {
                 $new_review = new Review();
