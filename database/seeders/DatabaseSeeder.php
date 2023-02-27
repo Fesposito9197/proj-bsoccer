@@ -23,7 +23,8 @@ class DatabaseSeeder extends Seeder
             StarSeeder::class,
             ReviewSeeder::class,
             MessageSeeder::class,
-            PlayerStarSeeder::class
+            PlayerStarSeeder::class,
+            PlayerSponsorshipSeeder::class
         ]);
         // \App\Models\User::factory(10)->create();
 
