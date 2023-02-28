@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Player;
+use Illuminate\Support\Facades\DB;
 
 class PlayerController extends Controller
 {
@@ -17,7 +18,7 @@ class PlayerController extends Controller
     public function index(Request $request)
     {
         $players = Player::query();
-        
+
         // Verifica se il parametro 'role' è presente nella richiesta
         if ($request->has('role')) {
             $role = $request->input('role');
@@ -26,9 +27,20 @@ class PlayerController extends Controller
                 $query->where('name', $role);
             });
         }
-        
-        // Restituisci i giocatori filtrati o tutti i giocatori se non è stato applicato alcun filtro
-        $players = $players->with('user', 'roles', 'stars', 'sponsorships')->get();
+
+        // Verifica se il parametro 'rating' è presente nella richiesta
+        if ($request->has('rating')) {
+            $rating = $request->input('rating');
+            // Esegue una query per recuperare solo i giocatori con almeno una stella con il rating specificato
+            $players->whereHas('stars', function ($query) use ($rating) {
+                $query->where('rating', $rating);
+            });
+        }
+
+        // Ottiene i giocatori filtrati e la media del rating delle stelle per ciascun giocatore
+        $players = $players->with(['user', 'roles', 'stars' => function ($query) {
+            $query->select('player_id', 'star_id', DB::raw('AVG(rating) as avg_rating'))->groupBy('player_id', 'star_id');
+        }, 'sponsorships'])->get();
 
         return $players;
     }
