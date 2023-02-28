@@ -21,7 +21,7 @@ class RoleSeeder extends Seeder
         Role::truncate();
         Schema::enableForeignKeyConstraints();
 
-        $roles = ['Portiere', 'Difensore Centrale', 'Terzino Destro', 'Terzino Sinistro', 'Centrocampista', 'Esterno Destro', 'Esterno Sinistro', 'Punta', 'Attacante Sinistro', 'Attacante Destro']; 
+        $roles = ['Portiere', 'Difensore Centrale', 'Terzino Destro', 'Terzino Sinistro', 'Centrocampista', 'Esterno Destro', 'Esterno Sinistro', 'Punta', 'Attaccante Sinistro', 'Attaccante Destro']; 
         
         foreach($roles as $role)
         {
