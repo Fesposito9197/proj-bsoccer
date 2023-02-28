@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Api\PlayerController;
+use App\Http\Controllers\Api\RoleController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -14,5 +15,7 @@ use Illuminate\Support\Facades\Route;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
+
 Route::get('players', [PlayerController::class, 'index']);
 Route::get('players/{id}', [PlayerController::class, 'show']);
+Route::get('roles', [RoleController::class, 'index']);
