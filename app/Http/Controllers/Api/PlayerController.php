@@ -17,7 +17,7 @@ class PlayerController extends Controller
     public function index(Request $request)
     {
         $players = Player::query();
-
+        
         // Verifica se il parametro 'role' è presente nella richiesta
         if ($request->has('role')) {
             $role = $request->input('role');
@@ -26,11 +26,11 @@ class PlayerController extends Controller
                 $query->where('name', $role);
             });
         }
-
+        
         // Restituisci i giocatori filtrati o tutti i giocatori se non è stato applicato alcun filtro
         $players = $players->with('user', 'roles', 'stars', 'sponsorships')->get();
 
-        return response()->json($players);
+        return $players;
     }
 
     public function show($id)
