@@ -3,7 +3,7 @@
 @section('content')
 
     @if (!empty($player))   
-            <div class="container p-3 border border-3 border-dark mt-3">
+            <div id="show-container" class="container p-3 border border-3 border-dark mt-3">
                 <img class="profile-image pb-2"
                 @if (!empty($player->profile_photo)) 
                 src="{{$player->profile_photo}}"    
