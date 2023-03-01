@@ -40,8 +40,9 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav me-auto">
-                        <li class="nav-item">
+                        <li class="nav-item d-flex align-center">
                             <a class="nav-link" href="{{url('http://localhost:5174/') }}">{{ __('Home') }}</a>
+                            <img id="logo-nav" src="{{ asset('images/pngwing.com.png') }}" alt="logo">
                         </li>
                     </ul>
 
