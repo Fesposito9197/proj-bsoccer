@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Api\MessageController;
 use App\Http\Controllers\Api\PlayerController;
+use App\Http\Controllers\Api\RatingController;
 use App\Http\Controllers\Api\ReviewController;
 use App\Http\Controllers\Api\RoleController;
 use Illuminate\Http\Request;
@@ -23,3 +24,4 @@ Route::get('players/{id}', [PlayerController::class, 'show']);
 Route::get('roles', [RoleController::class, 'index']);
 Route::post('messages/{player_id}', [MessageController::class, 'store']);
 Route::post('reviews/{player_id}', [ReviewController::class, 'store']);
+Route::post('ratings/{player_id}', [RatingController::class, 'store']);
