@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Models\Player;
 use App\Models\Star;
 use Illuminate\Http\Request;
 
@@ -13,13 +14,14 @@ class RatingController extends Controller
         $request->validate([
             'rating' => 'required|integer',
         ]);
-        $data = $request->all();
 
-        $new_rating = new Star();
-        $new_rating->player_id = $player_id;
-        $new_rating->star_id = $data['rating'];
-        $new_rating->save();
+        $player = Player::find($player_id);
 
-        return $new_rating;
+        $star_id = $request->input('rating');
+        $star = Star::find($star_id);
+
+        $player->stars()->attach($star);
+
+        return $player->stars;
     }
 }
