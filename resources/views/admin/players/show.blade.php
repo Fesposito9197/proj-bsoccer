@@ -4,7 +4,7 @@
 
     @if (!empty($player))   
             <div class="container p-3 border border-3 border-dark mt-3">
-                <img height="150px" width="150px" class="mb-3 rounded-circle object-fit-cover" width="100%" height="100%"
+                <img class="profile-image pb-2"
                 @if (!empty($player->profile_photo)) 
                 src="{{$player->profile_photo}}"    
                 src="{{ asset("storage/$player->profile_photo")}}"
