@@ -34,7 +34,7 @@
       <header
         class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-2 shadow"
       >
-        <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3" href="/"
+        <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3" href="http://localhost:5174/"
           >BSoccer</a
         >
         <button
