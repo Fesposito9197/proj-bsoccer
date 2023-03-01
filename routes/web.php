@@ -8,6 +8,7 @@ use App\Http\Controllers\ProfileController;
 use App\Models\Player;
 use App\Models\Role;
 use App\Models\User;
+use App\Providers\RouteServiceProvider;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -23,7 +24,11 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('auth/register');
+        $user= Auth::user();
+        if ($user === null) {
+            return view('auth.register');
+        }
+        return redirect(RouteServiceProvider::HOME);
 });
 
 Route::middleware(['auth'])->prefix('admin')->name('admin.')->group(function () {

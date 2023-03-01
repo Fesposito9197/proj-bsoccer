@@ -21,3 +21,5 @@ Route::get('players', [PlayerController::class, 'index']);
 Route::get('players/{id}', [PlayerController::class, 'show']);
 Route::get('roles', [RoleController::class, 'index']);
 Route::post('messages/{player_id}', [MessageController::class, 'store']);
+/* Route::get('getPlayer', [RoleController::class, 'index']); */
+/* Route::get('getUserName', [PlayerController::class, 'getUserName']); */
