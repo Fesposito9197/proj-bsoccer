@@ -23,7 +23,7 @@
     <div id="app">
 
 
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+        <nav class="navbar navbar-expand-md shadow-sm">
             <div class="container">
                 <a class="navbar-brand d-flex align-items-center" href="{{ url('/') }}">
                     
@@ -41,7 +41,7 @@
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav me-auto">
                         <li class="nav-item">
-                            <a class="nav-link" href="{{url('/') }}">{{ __('Home') }}</a>
+                            <a class="nav-link" href="{{url('http://localhost:5174/') }}">{{ __('Home') }}</a>
                         </li>
                     </ul>
 
@@ -87,4 +87,16 @@
     </div>
 </body>
 
+<style scoped>
+    nav{
+        background-color:  #111111;
+    }
+    a{
+        color: rgba(255, 255, 255, 0.644) !important
+    }
+    a:hover{
+        color: #F3E7C6 !important;
+    }
+    
+</style>
 </html>
