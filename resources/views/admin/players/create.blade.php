@@ -3,7 +3,8 @@
 @section('content')
     <div class="container">
         <h1>Crea il tuo profilo!</h1>
-        <form onsubmit="return checkCheckbox()" action="{{ route('admin.players.store') }}" method="post" enctype="multipart/form-data">
+        <form onsubmit="return checkCheckbox()" action="{{ route('admin.players.store') }}" method="post"
+            enctype="multipart/form-data">
             @csrf
             <div class="mb-3">
                 <label for="profile_photo" class="form-label">Aggiungi una foto profilo</label>
@@ -58,11 +59,12 @@
                 @enderror
             </div>
             <div class="mb-3">
-                <h4>Aggiungi un o piu ruoli!*</h4>
+                <h4>Aggiungi uno o piu ruoli!*</h4>
                 @foreach ($roles as $role)
                     <div class="form-check form-check-inline">
-                        <input class="form-check-input checkbox_role" type="checkbox" id="{{ $role->slug }}" name="roles[]"
-                            value="{{ $role->id }}" {{ in_array($role->id, old('roles', [])) ? 'checked' : '' }}>
+                        <input class="form-check-input checkbox_role" type="checkbox" id="{{ $role->slug }}"
+                            name="roles[]" value="{{ $role->id }}"
+                            {{ in_array($role->id, old('roles', [])) ? 'checked' : '' }}>
                         <label class="form-check-label">{{ $role->name }}</label>
                     </div>
                 @endforeach
@@ -75,7 +77,7 @@
                 const checkboxes = document.querySelectorAll('.checkbox_role');
                 for (let i = 0; i < checkboxes.length; i++) {
                     if (checkboxes[i].checked) {
-                    return true;
+                        return true;
                     }
                 }
                 const errorMessage = 'Seleziona almeno un ruolo';
@@ -87,8 +89,8 @@
                     input.setCustomValidity('');
                 });
                 return false;
-                }
+            }
         </script>
-     
+
     </div>
 @endsection
