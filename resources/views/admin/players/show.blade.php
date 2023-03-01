@@ -3,7 +3,7 @@
 @section('content')
 
     @if (!empty($player))   
-            <div id="show-container" class="container p-3 border border-3 border-dark mt-3">
+            <div id="show-container" class="container p-3 border border-3 border-white my-3 text-white">
                 <img class="profile-image pb-2"
                 @if (!empty($player->profile_photo)) 
                 src="{{$player->profile_photo}}"    
@@ -13,9 +13,9 @@
                     src='https://st3.depositphotos.com/6672868/14217/v/600/depositphotos_142179970-stock-illustration-user-profile-icon.jpg'
                 @endif
                 alt="{{ $player->name }}">
-                <h2 class="border-bottom border-3 border-dark pb-3">Nome: {{ $player->user->name }}</h2>
-                <h2 class="border-bottom border-3 border-dark pb-3">Città: {{ $player->city }}</h2>
-                <h2 class="border-bottom border-3 border-dark pb-3">Descrizione: {{ $player->description }}</h2>
+                <h2 class="border-bottom border-3 border-white pb-3">Nome: {{ $player->user->name }}</h2>
+                <h2 class="border-bottom border-3 border-white pb-3">Città: {{ $player->city }}</h2>
+                <h2 class="border-bottom border-3 border-white pb-3">Descrizione: {{ $player->description }}</h2>
                 
                 <h2>Ruoli:</h2>
                 @foreach ($player->roles as $role)

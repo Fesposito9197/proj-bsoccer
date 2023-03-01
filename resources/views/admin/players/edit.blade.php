@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 
 @section('content')
-    <div class="container">
+    <div class="container text-white my-3">
         <h1>Modifica: {{ $player->user->name }}</h1>
         <form onsubmit="return checkCheckbox()" action="{{ route('admin.players.update', $player) }}" method="post"
             enctype="multipart/form-data">
