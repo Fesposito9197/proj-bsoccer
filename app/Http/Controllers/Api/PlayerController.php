@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Player;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
 class PlayerController extends Controller
@@ -73,4 +74,12 @@ class PlayerController extends Controller
             ], 404);
         }
     }
+
+  /*   public function getUserName(){
+        $user= Auth::id();
+        return response()->json([
+            'response' => true,
+            'results' => 2
+        ]);
+    } */
 }
