@@ -21,7 +21,9 @@ class ReviewController extends Controller
         $userID = Auth::id();
         $player = Player::where('user_id', $userID)->first();
 
-        $reviews = Review::where('player_id', $player->id)->get();
+        $reviews = Review::where('player_id', $player->id)
+            ->orderBy('date_message', 'desc')
+            ->get();
         return view('admin.reviews.index', compact('player', 'reviews'));
     }
 }
