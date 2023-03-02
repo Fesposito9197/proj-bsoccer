@@ -11,9 +11,15 @@ class Player extends Model
     protected $guarded = ['roles'];
     protected $appends = ['image_url'];
 
+    // protected function getImageUrlAttribute()
+    // {
+    //     return $this->profile_photo ? asset("storage/$this->profile_photo") : "https://upload.wikimedia.org/wikipedia/commons/8/89/Portrait_Placeholder.png";
+    // }
     protected function getImageUrlAttribute()
     {
-        return $this->thumb ? asset("storage/$this->thumb") : "https://upload.wikimedia.org/wikipedia/commons/8/89/Portrait_Placeholder.png";
+        if (str_starts_with($this->profile_photo, "uploads")) {
+            return $this->profile_photo ? asset("storage/$this->profile_photo") : "https://upload.wikimedia.org/wikipedia/commons/8/89/Portrait_Placeholder.png";
+        }
     }
     public function user()
     {

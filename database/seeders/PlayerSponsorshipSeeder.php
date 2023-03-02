@@ -18,7 +18,7 @@ class PlayerSponsorshipSeeder extends Seeder
      */
     public function run()
     {
-        $players = Player::inRandomOrder()->take(5)->get();
+        $players = Player::inRandomOrder()->take(30)->get();
         $sponsorships = Sponsorship::all();
 
         DB::table('player_sponsorship')->truncate();

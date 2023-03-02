@@ -64,7 +64,7 @@ class ReviewSeeder extends Seeder
 
         foreach ($players as $player) {
             $num_reviews = Review::where('player_id', $player->id)->count();
-            $num_new_reviews = rand(5, 30) - $num_reviews;
+            $num_new_reviews = rand(5, 600) - $num_reviews;
 
             for ($i = 0; $i < $num_new_reviews; $i++) {
                 $new_review = new Review();
