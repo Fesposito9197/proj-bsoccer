@@ -18,6 +18,49 @@ class PlayerController extends Controller
 
 
 
+    // public function index(Request $request)
+    // {
+    //     $players = Player::query();
+
+    //     // Verifica se il parametro 'role' è presente nella richiesta
+    //     if ($request->has('role')) {
+    //         $role = $request->input('role');
+    //         // Esegue una query per recuperare solo i giocatori con il ruolo specificato
+    //         $players->whereHas('roles', function ($query) use ($role) {
+    //             $query->where('name', $role);
+    //         });
+    //     }
+
+    //     // Verifica se il parametro 'rating' è presente nella richiesta
+    //     if ($request->has('rating')) {
+    //         $rating = $request->input('rating');
+    //         // Esegue una query per recuperare solo i giocatori con almeno una stella con il rating specificato
+    //         $players->whereHas('stars', function ($query) use ($rating) {
+    //             $query->where('rating', $rating);
+    //         });
+    //     }
+
+    //     // Se è stato passato solo il filtro "role", restituisci solo i giocatori con quel ruolo
+    //     if (!$request->has('role') && !$request->has('rating')) {
+    //         $players = $players->with('user', 'roles', 'stars', 'sponsorships', 'reviews')->get();
+    //     } elseif ($request->has('role') && !$request->has('rating')) {
+    //         $players = $players->with('user', 'roles', 'stars', 'sponsorships', 'reviews')->get();
+    //     }
+    //     // Se è stato passato solo il filtro "rating", restituisci solo i giocatori con almeno una stella con quel rating
+    //     elseif (!$request->has('role') && $request->has('rating')) {
+    //         $players = $players->with(['user', 'roles', 'stars' => function ($query) {
+    //             $query->select('player_id', 'star_id', DB::raw('AVG(rating) as avg_rating'))->groupBy('player_id', 'star_id');
+    //         }, 'sponsorships', 'reviews'])->get();
+    //     }
+    //     // Altrimenti, restituisci i giocatori filtrati e la media del rating delle stelle per ciascun giocatore
+    //     else {
+    //         $players = $players->with(['user', 'roles', 'stars' => function ($query) {
+    //             $query->select('player_id', 'star_id', DB::raw('AVG(rating) as avg_rating'))->groupBy('player_id', 'star_id');
+    //         }, 'sponsorships', 'reviews'])->get();
+    //     }
+
+    //     return $players;
+    // }
     public function index(Request $request)
     {
         $players = Player::query();
@@ -42,25 +85,26 @@ class PlayerController extends Controller
 
         // Se è stato passato solo il filtro "role", restituisci solo i giocatori con quel ruolo
         if (!$request->has('role') && !$request->has('rating')) {
-            $players = $players->with('user', 'roles', 'stars', 'sponsorships', 'reviews')->get();
+            $players = $players->with('user', 'roles', 'stars', 'sponsorships', 'reviews')->paginate(10);
         } elseif ($request->has('role') && !$request->has('rating')) {
-            $players = $players->with('user', 'roles', 'stars', 'sponsorships', 'reviews')->get();
+            $players = $players->with('user', 'roles', 'stars', 'sponsorships', 'reviews')->paginate(10);
         }
         // Se è stato passato solo il filtro "rating", restituisci solo i giocatori con almeno una stella con quel rating
         elseif (!$request->has('role') && $request->has('rating')) {
             $players = $players->with(['user', 'roles', 'stars' => function ($query) {
                 $query->select('player_id', 'star_id', DB::raw('AVG(rating) as avg_rating'))->groupBy('player_id', 'star_id');
-            }, 'sponsorships', 'reviews'])->get();
+            }, 'sponsorships', 'reviews'])->paginate(10);
         }
         // Altrimenti, restituisci i giocatori filtrati e la media del rating delle stelle per ciascun giocatore
         else {
             $players = $players->with(['user', 'roles', 'stars' => function ($query) {
                 $query->select('player_id', 'star_id', DB::raw('AVG(rating) as avg_rating'))->groupBy('player_id', 'star_id');
-            }, 'sponsorships', 'reviews'])->get();
+            }, 'sponsorships', 'reviews'])->paginate(10);
         }
 
         return $players;
     }
+
 
 
     public function show($id)
@@ -75,7 +119,7 @@ class PlayerController extends Controller
         }
     }
 
-  /*   public function getUserName(){
+    /*   public function getUserName(){
         $user= Auth::id();
         return response()->json([
             'response' => true,
