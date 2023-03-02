@@ -20,7 +20,10 @@ class MessageController extends Controller
         $userID = Auth::id();
         $player = Player::where('user_id', $userID)->first();
 
-        $messages = Message::where('player_id', $player->id)->get();
+        $messages = Message::where('player_id', $player->id)
+            ->orderBy('date_message', 'desc')
+            ->get();
+
         return view('admin.messages.index', compact('player', 'messages'));
     }
 }
