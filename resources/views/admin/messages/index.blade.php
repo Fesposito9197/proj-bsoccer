@@ -9,7 +9,7 @@
                     <div class="card-body">
                         <h5>{{$message->name}}</h5>
                         <a class="border-bottom  border-secondary text-decoration-none" href="mailto:{{$message->email}}">{{$message->email}}</a>
-                        <p class="border-bottom pb-2 mb-2 border-3 border-secondary" style="min-height: 200px; max-height: 200px; overflow: hidden;">{{$message->content}}</p>
+                        <p class="border-bottom pb-2 mb-2 border-3 border-secondary fs-5" style="min-height: 200px; max-height: 200px; overflow: hidden;">{{$message->content}}</p>
                         <p class="text-end">{{$message->date_message}}</p>
 
                         <!-- Attiva modale -->

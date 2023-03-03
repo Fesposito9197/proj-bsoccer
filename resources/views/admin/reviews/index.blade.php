@@ -9,7 +9,7 @@
                     <div class="card-body">
                         <h5>{{$review->name}}</h5>
                         <p class="border-bottom pb-2 mb-2 border-3 border-info">{{$review->email}}</p>
-                        <p class="border-bottom pb-2 mb-2 border-3 border-info" style="min-height: 200px; max-height: 200px; overflow: hidden;">{{$review->content}}</p>
+                        <p class="border-bottom pb-2 mb-2 border-3 border-info fs-5" style="min-height: 200px; max-height: 200px; overflow: hidden;">{{$review->content}}</p>
                         <p class="text-end">{{$review->date_message}}</p>
 
                         <!-- Attiva modale -->
