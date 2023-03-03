@@ -60,7 +60,7 @@
                 </div>
             </div>
     @else
-        <div class="d-flex align-items-center">
+        <div class="d-flex align-items-center text-light">
             <h1>Benvenuto {{$users->name}} ! Crea ora il tuo profilo!</h1>
             <a href="{{ route('admin.players.create') }}" class="btn btn-success ms-2"><i class="fa-regular fa-square-plus fa-lg fa-fw"></i></a>
         </div>
