@@ -4,13 +4,16 @@
 
     @if (!empty($player))   
             <div id="show-container" class="container p-3 border border-3 border-white my-3 text-white">
+                @if (str_contains($player->profile_photo,'https'))
+                <img class="profile-image pb-2" src="{{ $player->profile_photo }}" alt="">
+                    
+                @else
                 <img class="" 
                 src="{{ $player->profile_photo ? asset('storage/' . $player->profile_photo) : 'https://st3.depositphotos.com/6672868/14217/v/600/depositphotos_142179970-stock-illustration-user-profile-icon.jpg' }}" 
                 alt="">
+                    
+                @endif
                 
-                <img class="profile-image pb-2" 
-                src="{{ $player->profile_photo }}" 
-                alt="">
 
             
                 {{-- <img class="profile-image pb-2"
