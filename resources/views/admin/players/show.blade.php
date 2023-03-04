@@ -8,8 +8,7 @@
                 <img class="profile-image pb-2" src="{{ $player->profile_photo }}" alt="">
                     
                 @else
-                <img class="" 
-                src="{{ $player->profile_photo ? asset('storage/' . $player->profile_photo) : 'https://st3.depositphotos.com/6672868/14217/v/600/depositphotos_142179970-stock-illustration-user-profile-icon.jpg' }}" 
+                <img class="" src="{{ $player->profile_photo ? asset('storage/' . $player->profile_photo) : 'https://st3.depositphotos.com/6672868/14217/v/600/depositphotos_142179970-stock-illustration-user-profile-icon.jpg' }}" 
                 alt="">
                     
                 @endif
