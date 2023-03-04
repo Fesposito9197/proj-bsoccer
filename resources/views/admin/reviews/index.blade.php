@@ -2,8 +2,8 @@
 
 @section('content')
   <div class="container mt-4 d-flex flex-wrap mb-3">
-    @if (!empty($reviews))
-      <h1 class="text-light">NON HAI RECENSIONI AL MOMENTO</h1>
+    @if (count($reviews) == 0)
+    <h1 class="text-light">NON HAI RECENSIONI AL MOMENTO</h1>
     @else
     @foreach ($reviews as $review)
       <ul class="list-group mb-3">
