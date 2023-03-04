@@ -10,7 +10,7 @@
             <div class="mb-3">
                 <label for="profile_photo" class="form-label">Modifica foto profilo</label>
                 <img id="output" width="100" class="d-block my-3"
-                    @if ($player->profile_photo) src='{{ asset("storage/$player->profile_photo") }}' @endif />
+                    @if (str_contains($player->profile_photo,'https')) src="{{ $player->profile_photo }}"  @else src="{{ $player->profile_photo ? asset('storage/' . $player->profile_photo) : 'https://st3.depositphotos.com/6672868/14217/v/600/depositphotos_142179970-stock-illustration-user-profile-icon.jpg' }}" @endif />
                 <input type="file" class="form-control @error('profile_photo') is-invalid @enderror" id="profile_photo"
                     name="profile_photo" value="{{ old('profile_photo', $player->profile_photo) }}"
                     onchange="loadFile(event)">

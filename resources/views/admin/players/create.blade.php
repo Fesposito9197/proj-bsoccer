@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 
 @section('content')
-    <div class="container">
+    <div class="container text-light">
         <h1>Crea il tuo profilo!</h1>
         <form onsubmit="return checkCheckbox()" action="{{ route('admin.players.store') }}" method="post"
             enctype="multipart/form-data">
