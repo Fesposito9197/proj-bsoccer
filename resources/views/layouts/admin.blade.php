@@ -31,12 +31,9 @@
 
   <body>
     <div id="app">
-      <header
-        class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-2 shadow"
-      >
-        <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3" href="http://localhost:5174/"
-          >BSoccer</a
-        >
+      <header class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-2 shadow">
+
+        <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3" href="http://localhost:5174/">BSoccer</a>
         {{-- <button
           class="navbar-toggler position-absolute d-md-none collapsed"
           type="button"
@@ -60,8 +57,7 @@
               class="nav-link p-2"
               href="{{ route('logout') }}"
               onclick="event.preventDefault();
-                    document.getElementById('logout-form').submit();"
-            >
+                    document.getElementById('logout-form').submit();">
               {{ __('Logout') }}
             </a>
             <form
@@ -98,7 +94,7 @@
                 
                 <li class="nav-item my-3">
                   <a
-                    class="nav-link text-white {{ Route::currentRouteName() == 'admin.players.index' ? 'bg-secondary' : '' }}"
+                    class="aside-nav rounded nav-link text-white {{ Route::currentRouteName() == 'admin.players.index' ? 'bg-success' : '' }}"
                     href="{{route('admin.players.index')}}"
                   >
                   <i class="fa-solid fa-user fa-lg fa-fw"></i>
@@ -108,7 +104,7 @@
                 @if (!empty($player))
                 <li class="nav-item">
                   <a
-                    class="nav-link text-white {{ Route::currentRouteName() == 'admin.messages.index' ? 'bg-secondary' : '' }}"
+                    class="aside-nav rounded nav-link text-white {{ Route::currentRouteName() == 'admin.messages.index' ? 'bg-success' : '' }}"
                     href="{{route('admin.messages.index')}}"
                   >
                   <i class="fa-solid fa-message fa-lg fa-fw"></i>
@@ -120,7 +116,7 @@
                 @if (!empty($player))
                 <li class="nav-item mt-3">
                   <a
-                    class="nav-link text-white {{ Route::currentRouteName() == 'admin.reviews.index' ? 'bg-secondary' : '' }}"
+                    class="aside-nav rounded nav-link text-white {{ Route::currentRouteName() == 'admin.reviews.index' ? 'bg-success' : '' }}"
                     href="{{route('admin.reviews.index')}}"
                   >
                   <i class="fa-solid fa-thumbtack fa-lg fa-fw"></i>
