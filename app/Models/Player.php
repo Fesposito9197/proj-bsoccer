@@ -50,4 +50,9 @@ class Player extends Model
     {
         return $this->belongsToMany(Sponsorship::class);
     }
+
+    public function scopeWithSponsorshipsCount($query)
+    {
+        $query->withCount('sponsorships');
+    }
 }

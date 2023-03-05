@@ -83,6 +83,12 @@ class PlayerController extends Controller
             });
         }
 
+        // Include la sponsorships count per ogni giocatore nella query
+        $players->withSponsorshipsCount();
+
+        // Ordina i giocatori per sponsorships popolate e poi per gli altri
+        $players->orderByRaw('sponsorships_count > 0 desc');
+
         // Se è stato passato solo il filtro "role", restituisci solo i giocatori con quel ruolo
         if (!$request->has('role') && !$request->has('rating')) {
             $players = $players->with('user', 'roles', 'stars', 'sponsorships', 'reviews')->paginate(12);
